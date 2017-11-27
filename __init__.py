@@ -36,13 +36,11 @@ class MycroftBroadlinkSkill(MycroftSkill):
 
        light_off_intent = IntentBuilder("LightOffIntent"). \
             require("LightOffKeyword").build()
-        self.register_intent(light_off_intent,
-                             self.handle_light_off_intent)
+        self.register_inten(light_off_intent, self.handle_light_off_intent)
 
         device_intent = IntentBuilder("DeviceIntent"). \
             require("DeviceKeyword").build()
-        self.register_intent(device_intent,
-                             self.handle_device_intent)
+        self.register_inten(device_intent, self.handle_device_intent)
 
     def handle_light_on_intent(self, message):
         self.speak_dialog("light.on")
