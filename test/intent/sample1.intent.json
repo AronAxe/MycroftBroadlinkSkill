@@ -1,7 +1,7 @@
 {
   "utterance": "Mood lights on,
   "intent_type": "LightOnIntent",
-  "intent": { curl http://192.168.178.120:7474/send?deviceMac=b4:43:0d:9b:d9:a5&codeId=452 }
+  "intent": { curl http://192.168.178.120:7474/send?deviceMac=b4:43:0d:9b:d9:a5&codeId=452
     "LightOnKeyword": "Let there be light"
   }
 }
