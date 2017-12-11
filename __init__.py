@@ -15,8 +15,9 @@
 # You should have received a copy of the GNU General Public License
 # along with Mycroft Core.  If not, see <http://www.gnu.org/licenses/>.
 
-from adapt.intent import IntentBuilder
+from os.path import dirname
 
+from adapt.intent import IntentBuilder
 from mycroft.skills.core import MycroftSkill
 from mycroft.util.log import getLogger
 
@@ -36,14 +37,20 @@ class MycroftBroadlinkSkill(MycroftSkill):
 
        light_off_intent = IntentBuilder("LightOffIntent"). \
             require("LightOffKeyword").build()
-        self.register_inten(light_off_intent, self.handle_light_off_intent)
+        self.register_intent(light_off_intent,
+                             self.handle_light_off_intent)
 
         device_intent = IntentBuilder("DeviceIntent"). \
             require("DeviceKeyword").build()
-        self.register_inten(device_intent, self.handle_device_intent)
+        self.register_intent(device_intent,
+                             self.handle_device_intent)
 
     def handle_light_on_intent(self, message):
-        self.speak_dialog("light.on")
+
+      try: curl http://192.168.178.120:7474/send?deviceMac=b4:43:0d:9b:d9:a5&codeId=452  
+      self.speak_dialog("light.on")
+
+      except: self.speak_dialog("error")    
 
     def handle_light_off_intent(self, message):
         self.speak_dialog("light.off")
